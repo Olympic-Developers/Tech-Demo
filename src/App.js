@@ -1,5 +1,7 @@
-import { useState } from "react";
+import react, { useState } from "react";
 import { CognitoUserPool } from "amazon-cognito-identity-js";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -22,18 +24,24 @@ function App() {
   }
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>  
+    <div className = "d-flex justify-content-center align-items-center masthead">
+        <form onSubmit={onSubmit}>  
 
-        <input
-          value = {email}
-          onChange = {event => setEmail(event.target.value)}
-        />
+        <div>
+            <label>Email:</label>
+            <input
+                value = {email}
+                onChange = {event => setEmail(event.target.value)}
+            />
+        </div>
 
-        <input
-          value = {password}
-          onChange = {event => setPassword(event.target.value)}
-        />
+        <div>
+            <label>Password:</label>
+            <input
+                value = {password}
+                onChange = {event => setPassword(event.target.value)}
+            />
+        </div>
 
         <button type='submit'> SignUp</button>
       </form>
